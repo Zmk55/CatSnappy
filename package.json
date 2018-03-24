@@ -1,0 +1,18 @@
+{
+  "name": "catsnappy-master",
+  "version": "1.0.0",
+  "description": "Catsnappy.com is a play off of a mix of instagram and imgur. This website is for catlovers where only cat related media can be posted. This website demonstrates what the front end will look like before a user signs in. I plan to use this project in the back end to tie everything together.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "fs": "0.0.1-security",
+    "multer": "^1.3.0",
+    "nodemon": "^1.17.1"
+  }
+}

@@ -1,0 +1,36 @@
+.w3-jumbo {
+    font-family: Lobster, Monospace;
+
+}
+
+ body,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Montserrat", sans-serif
+    }
+
+/** new code here **/
+#overlay {
+    background: rgba(0,0,0.7);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none ;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*
+@media (min-width: 760px) {
+#photos {
+    
+   margin-left: 120px;
+}
+*/
