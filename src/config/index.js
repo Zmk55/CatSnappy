@@ -2,7 +2,7 @@
 
 module.exports = {
     appName: 'Our Glorious Node Project',
-    port: 3030,
+    port: 4949,
     db: {
       username: 'zmk55',
       password: 'Washum',
