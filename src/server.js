@@ -13,6 +13,7 @@ mongoose.connection.openUri(`mongodb://${config.db.username}:${config.db.passwor
 
 //import all models
 require('./models/file.models.js');
+
 const app = express();
 const publicPath = path.resolve(__dirname, '../public');
 app.use(bodyParser.json());
