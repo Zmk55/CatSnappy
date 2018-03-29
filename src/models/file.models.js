@@ -1,8 +1,14 @@
 // Load mongoose package
 const mongoose = require('mongoose');
+const fs = require('fs');
+var express = require('express');
+var Schema = mongoose.Schema;
+
+//img path
+var imgPath = '../../public/pics/cat1.jpg';
 
 // Image schema
-var schema = new Schema({
+const schema = new mongoose.Schema({
   img: { data: Buffer, contentType: String },
   title: String,
   description: String,
@@ -62,3 +68,5 @@ Cat.remove(function (err) {
 });
 
 });
+
+module.exports = Cat;

@@ -1,7 +1,7 @@
 // src/config/index.js
 
 module.exports = {
-    appName: 'Our Glorious Node Project',
+    appName: 'Catsnappy',
     port: 4949,
     db: {
       username: 'zmk55',

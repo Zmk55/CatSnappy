@@ -1,24 +1,25 @@
 // src/server.js
 const path = require('path');
-const mongoose = require('mongoose');
 const express = require('express');
-const fs = require('fs');
-const multer = require('multer');
-const app = express();
-const publicPath = path.resolve(__dirname, '../public');
-app.use(express.static(publicPath));
-const config = require('./config');
 const bodyParser = require('body-parser');
-app.use(bodyParser.json());
+const config = require('./config');
 const router = require('./routes');
 
-app.use('/api', router);
+//load mongoose package
+const mongoose = require('mongoose');
 
+//connect MongoDB and create/use database as configured
 mongoose.connection.openUri(`mongodb://${config.db.username}:${config.db.password}@${config.db.host}/${config.db.dbName}`);
 
-// Import all models
-// require('./models/file.model.js');
-
+//import all models
+require('./models/file.models.js');
+const app = express();
+const publicPath = path.resolve(__dirname, '../public');
+app.use(bodyParser.json());
+app.use(express.static(publicPath));
+app.use('/api', router);
+const fs = require('fs');
+const multer = require('multer');
 
 
 app.listen(config.port, function() {

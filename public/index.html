@@ -296,12 +296,12 @@
 
             <script id="list-template" type="text/x-handlebars-template">
 
-                {{#each cats}}
+                {{#cat}}
                 <div class="cell">
                     <img src="{{img}}" class="responsive-image" alt="cat">
                 </div>
                 <span class=""></span>
-                {{/each}}
+                {{/cat}}
 
             </script>
 
@@ -322,7 +322,7 @@
 <script>
     $(document).ready(function () {
         const data = {
-            cats: [{
+            cat: [{
                     name: 'Buffy',
                     value: 'Slayer, guidance counselor',
                     img: 'pics/gallery/cat19.jpg'
