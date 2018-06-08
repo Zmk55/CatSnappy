@@ -299,7 +299,10 @@
 
                 {{#cat}}
                 <div class="cell">
-                    <img src="{{img}}" class="responsive-image" alt="cat">
+                    <a href="{{img}}" onclick="handleCatClick">
+                        <img src="{{img}}" class="responsive-image" alt="cat">
+
+                    </a>
                 </div>
                 <span class=""></span>
                 {{/cat}}
@@ -372,11 +375,10 @@
 </script>
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="js/vendor/jquery.ui.widget.js"></script>
+<!-- <script src="js/vendor/jquery.ui.widget.js"></script>
 <script src="js/jquery.iframe-transport.js"></script>
-<script src="js/jquery.fileupload.js"></script>
-<script>
+<script src="js/jquery.fileupload.js"></script> -->
+<!-- <script>
     $(function () {
         $('#fileupload').fileupload({
             dataType: 'json',
@@ -387,9 +389,9 @@
             }
         });
     });
-</script>
+</script> -->
 
-<script>
+<!-- <script>
     $('#fileupload').fileupload({
         /* ... */
         progressall: function (e, data) {
@@ -400,7 +402,7 @@
             );
         }
     });
-</script>
+</script> -->
 <div id="progress">
     <div class="bar" style="width: 0%;"></div>
 </div>
