@@ -11,10 +11,14 @@ export default function LandingPage() {
           <div className='flex items-center space-x-2'>
             <img
               src='/Cat_NoName.png'
-              alt='CatSnappy Logo'
+              alt='Cat Logo'
               className='w-12 h-12'
             />
-            <span className='text-2xl font-bold gradient-text'>CatSnappy</span>
+            <img
+              src='/CatSnappy_Name.png'
+              alt='CatSnappy Text'
+              className='h-8 w-auto'
+            />
           </div>
           <div className='flex items-center space-x-4'>
             <Link href='/auth/signin'>

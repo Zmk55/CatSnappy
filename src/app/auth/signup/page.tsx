@@ -101,14 +101,18 @@ export default function SignUpPage() {
         <div className='text-center'>
           <Link
             href='/'
-            className='flex items-center justify-center space-x-2 mb-6'
+            className='flex items-center justify-center space-x-3 mb-6'
           >
             <img
               src='/Cat_NoName.png'
-              alt='CatSnappy Logo'
+              alt='Cat Logo'
               className='w-16 h-16'
             />
-            <span className='text-3xl font-bold gradient-text'>CatSnappy</span>
+            <img
+              src='/CatSnappy_Name.png'
+              alt='CatSnappy Text'
+              className='h-10 w-auto'
+            />
           </Link>
           <h2 className='text-2xl font-bold'>Create your account</h2>
           <p className='text-muted-foreground'>Join the cat community</p>

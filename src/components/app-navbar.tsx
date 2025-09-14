@@ -39,12 +39,14 @@ export function AppNavbar() {
           >
             <img
               src='/Cat_NoName.png'
-              alt='CatSnappy Logo'
+              alt='Cat Logo'
               className='w-10 h-10 sm:w-12 sm:h-12'
             />
-            <span className='text-lg sm:text-xl font-bold gradient-text hidden sm:block'>
-              CatSnappy
-            </span>
+            <img
+              src='/CatSnappy_Name.png'
+              alt='CatSnappy Text'
+              className='h-6 sm:h-8 w-auto'
+            />
           </Link>
 
           {/* Navigation Items */}
