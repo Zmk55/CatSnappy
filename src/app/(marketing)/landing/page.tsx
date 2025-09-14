@@ -12,12 +12,12 @@ export default function LandingPage() {
             <img
               src='/Cat_NoName.png'
               alt='Cat Logo'
-              className='w-12 h-12'
+              className='w-20 h-20'
             />
             <img
               src='/CatSnappy_Name.png'
               alt='CatSnappy Text'
-              className='h-8 w-auto'
+              className='h-12 w-auto'
             />
           </div>
           <div className='flex items-center space-x-4'>

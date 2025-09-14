@@ -75,12 +75,12 @@ export default function SignInPage() {
             <img
               src='/Cat_NoName.png'
               alt='Cat Logo'
-              className='w-16 h-16'
+              className='w-24 h-24'
             />
             <img
               src='/CatSnappy_Name.png'
               alt='CatSnappy Text'
-              className='h-10 w-auto'
+              className='h-14 w-auto'
             />
           </Link>
           <h2 className='text-2xl font-bold'>Welcome back</h2>

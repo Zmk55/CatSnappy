@@ -40,12 +40,12 @@ export function AppNavbar() {
             <img
               src='/Cat_NoName.png'
               alt='Cat Logo'
-              className='w-10 h-10 sm:w-12 sm:h-12'
+              className='w-16 h-16 sm:w-20 sm:h-20'
             />
             <img
               src='/CatSnappy_Name.png'
               alt='CatSnappy Text'
-              className='h-6 sm:h-8 w-auto'
+              className='h-10 sm:h-12 w-auto'
             />
           </Link>
 
