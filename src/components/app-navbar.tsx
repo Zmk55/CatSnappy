@@ -45,7 +45,7 @@ export function AppNavbar() {
             <img
               src='/CatSnappy_Name.png'
               alt='CatSnappy Text'
-              className='w-24 h-10 sm:w-32 sm:h-12'
+              className='w-24 h-10 sm:w-32 sm:h-12 object-contain'
             />
           </Link>
 
