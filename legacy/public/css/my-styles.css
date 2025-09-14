@@ -1,0 +1,172 @@
+/*-------Navbar Code-------*/
+
+a.navbar-brand {
+  font-family: Lobster, Monospace;
+  color: black;
+}
+
+body,
+html {
+  background: black;
+}
+
+.nav-search {
+  display: inline;
+}
+
+.navbar.navbar-default {
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  width: 100%;
+}
+
+.navbar.navbar-default .navbar-nav > li > a,
+.navbar.navbar-default .navbar-brand {
+  color: #fff;
+}
+
+.navbar.navbar-default .navbar-collapse {
+  border: none;
+  box-shadow: none;
+}
+
+.glyphicon-send {
+  margin-left: 4px;
+}
+
+.caret,
+.glyphicon-arrow-up {
+  color: #5fcf80;
+}
+
+.sign-up {
+  background: #5fcf80;
+  color: white;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.sign-up:hover {
+  color: white;
+  text-decoration: none;
+  filter: brightness(85%);
+}
+
+/* -------- Jumbo Tron ------*/
+
+.carousel-inner > .item > img {
+  margin: 0 auto;
+}
+
+.centered-form {
+  margin-top: 20%;
+}
+
+.btn-register {
+  background-color: #5fcf80;
+  color: #fff;
+}
+
+.panel-title {
+  text-align: center;
+  font-family: helvetica;
+}
+
+.btn-primary {
+  background-color: #5fcf80;
+  border: none;
+}
+/*------ Image Gallery -------*/
+
+.image-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.responsive-image {
+  max-width: 100%;
+}
+
+.cell img {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+
+.cell {
+  margin: 1rem;
+}
+
+/*----- Disables hamburger button -----*/
+
+.navbar-collapse.collapse {
+  display: block !important;
+}
+
+.navbar-nav > li,
+.navbar-nav {
+  float: left !important;
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: -15px !important;
+}
+
+.navbar-right {
+  float: right !important;
+}
+
+.dropdown-toggle,
+.navbar-brand {
+  position: absolute;
+}
+
+/* ------ Media Query ------*/
+@media screen and (max-width: 600px) {
+  .nav-search {
+    display: none;
+  }
+  #myCarousel {
+    display: none;
+  }
+  #box {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .cell {
+    width: calc(33.3333% - 2rem);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .cell {
+    width: calc(16.6666% - 2rem);
+  }
+
+  .navbar {
+    margin: 0;
+  }
+}
