@@ -111,7 +111,7 @@ export default function SignUpPage() {
             <img
               src='/CatSnappy_Name.png'
               alt='CatSnappy Text'
-              className='h-14 w-auto'
+              className='w-48 h-14'
             />
           </Link>
           <h2 className='text-2xl font-bold'>Create your account</h2>

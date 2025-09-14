@@ -80,7 +80,7 @@ export default function SignInPage() {
             <img
               src='/CatSnappy_Name.png'
               alt='CatSnappy Text'
-              className='h-14 w-auto'
+              className='w-48 h-14'
             />
           </Link>
           <h2 className='text-2xl font-bold'>Welcome back</h2>

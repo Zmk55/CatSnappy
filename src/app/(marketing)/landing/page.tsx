@@ -17,7 +17,7 @@ export default function LandingPage() {
             <img
               src='/CatSnappy_Name.png'
               alt='CatSnappy Text'
-              className='h-12 w-auto'
+              className='w-40 h-12'
             />
           </div>
           <div className='flex items-center space-x-4'>
