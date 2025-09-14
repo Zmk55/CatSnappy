@@ -17,6 +17,15 @@ export const createUserSchema = z.object({
 
 export const updateUserSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters').optional(),
+  handle: z
+    .string()
+    .min(3, 'Handle must be at least 3 characters')
+    .max(20, 'Handle must be less than 20 characters')
+    .regex(
+      /^[a-zA-Z0-9_]+$/,
+      'Handle can only contain letters, numbers, and underscores'
+    )
+    .optional(),
   bio: z.string().max(500, 'Bio must be less than 500 characters').optional(),
   image: z.string().url('Invalid image URL').optional(),
 })

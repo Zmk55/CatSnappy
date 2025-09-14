@@ -162,6 +162,7 @@ export default function SettingsPage() {
   // Update form values when user data loads
   if (user && !watch('name')) {
     setValue('name', user.name || '')
+    setValue('handle', user.handle || '')
     setValue('bio', user.bio || '')
   }
 
@@ -273,20 +274,25 @@ export default function SettingsPage() {
                 </p>
               </div>
 
-              {/* Handle (read-only) */}
+              {/* Handle (editable) */}
               <div className='space-y-2'>
                 <Label htmlFor='handle' className='flex items-center'>
                   <Hash className='w-4 h-4 mr-2' />
-                  Handle
+                  Username
                 </Label>
                 <Input
                   id='handle'
-                  value={user.handle}
-                  disabled
-                  className='bg-muted'
+                  {...register('handle')}
+                  placeholder='Enter your username'
                 />
+                {errors.handle && (
+                  <p className='text-sm text-red-500'>
+                    {errors.handle.message}
+                  </p>
+                )}
                 <p className='text-sm text-muted-foreground'>
-                  Handle cannot be changed
+                  This will be your unique username for logging in and sharing
+                  your profile
                 </p>
               </div>
 

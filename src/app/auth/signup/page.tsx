@@ -12,6 +12,7 @@ export default function SignUpPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    handle: '',
     password: '',
     confirmPassword: '',
   })
@@ -52,7 +53,7 @@ export default function SignUpPage() {
           name: formData.name,
           email: formData.email,
           password: formData.password,
-          handle: generateHandle(formData.name),
+          handle: formData.handle || generateHandle(formData.name),
         }),
       })
 
@@ -144,6 +145,25 @@ export default function SignUpPage() {
               className='w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring'
               placeholder='Enter your email'
             />
+          </div>
+
+          <div>
+            <label htmlFor='handle' className='block text-sm font-medium mb-2'>
+              Username
+            </label>
+            <input
+              id='handle'
+              type='text'
+              value={formData.handle}
+              onChange={e =>
+                setFormData(prev => ({ ...prev, handle: e.target.value }))
+              }
+              className='w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring'
+              placeholder='Choose a username (optional)'
+            />
+            <p className='text-sm text-muted-foreground mt-1'>
+              Leave blank to auto-generate from your name
+            </p>
           </div>
 
           <div>

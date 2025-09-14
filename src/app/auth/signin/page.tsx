@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 import { useToast } from '@/hooks/use-toast'
 
 export default function SignInPage() {
-  const [email, setEmail] = useState('')
+  const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
@@ -20,7 +20,7 @@ export default function SignInPage() {
 
     try {
       const result = await signIn('credentials', {
-        email,
+        login,
         password,
         redirect: false,
       })
@@ -28,7 +28,7 @@ export default function SignInPage() {
       if (result?.error) {
         toast({
           title: 'Error',
-          description: 'Invalid email or password',
+          description: 'Invalid email/username or password',
           variant: 'destructive',
         })
       } else {
@@ -83,17 +83,17 @@ export default function SignInPage() {
 
         <form className='space-y-6' onSubmit={handleSubmit}>
           <div>
-            <label htmlFor='email' className='block text-sm font-medium mb-2'>
-              Email
+            <label htmlFor='login' className='block text-sm font-medium mb-2'>
+              Email or Username
             </label>
             <input
-              id='email'
-              type='email'
+              id='login'
+              type='text'
               required
-              value={email}
-              onChange={e => setEmail(e.target.value)}
+              value={login}
+              onChange={e => setLogin(e.target.value)}
               className='w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring'
-              placeholder='Enter your email'
+              placeholder='Enter your email or username'
             />
           </div>
 

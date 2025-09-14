@@ -57,6 +57,23 @@ export async function PATCH(request: Request) {
     const body = await request.json()
     const validatedData = updateUserSchema.parse(body)
 
+    // Check if handle is being updated and if it's unique
+    if (validatedData.handle) {
+      const existingUser = await prisma.user.findFirst({
+        where: {
+          handle: validatedData.handle,
+          id: { not: session.user.id }, // Exclude current user
+        },
+      })
+
+      if (existingUser) {
+        return NextResponse.json(
+          { error: 'Username is already taken' },
+          { status: 400 }
+        )
+      }
+    }
+
     const updatedUser = await prisma.user.update({
       where: { id: session.user.id },
       data: validatedData,
@@ -85,6 +102,14 @@ export async function PATCH(request: Request) {
     if (error instanceof Error && error.name === 'ZodError') {
       return NextResponse.json(
         { error: 'Invalid input data', details: error.message },
+        { status: 400 }
+      )
+    }
+
+    // Handle Prisma unique constraint errors
+    if (error instanceof Error && error.message.includes('Unique constraint')) {
+      return NextResponse.json(
+        { error: 'Username is already taken' },
         { status: 400 }
       )
     }
