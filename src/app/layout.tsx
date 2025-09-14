@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'CatSnappy Team' }],
   creator: 'CatSnappy',
   publisher: 'CatSnappy',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   formatDetection: {
     email: false,
     address: false,

@@ -37,11 +37,11 @@ export function AppNavbar() {
             href='/feed'
             className='flex items-center space-x-1 sm:space-x-2'
           >
-            <div className='w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center'>
-              <span className='text-white font-bold text-sm sm:text-lg'>
-                🐱
-              </span>
-            </div>
+            <img
+              src='/catsnappy-logo-small.svg'
+              alt='CatSnappy Logo'
+              className='w-6 h-6 sm:w-8 sm:h-8'
+            />
             <span className='text-lg sm:text-xl font-bold gradient-text hidden sm:block'>
               CatSnappy
             </span>

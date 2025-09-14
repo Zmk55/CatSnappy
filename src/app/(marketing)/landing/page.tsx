@@ -9,9 +9,11 @@ export default function LandingPage() {
       <header className='container mx-auto px-4 py-6'>
         <nav className='flex items-center justify-between'>
           <div className='flex items-center space-x-2'>
-            <div className='w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center'>
-              <span className='text-white font-bold text-lg'>🐱</span>
-            </div>
+            <img
+              src='/catsnappy-logo-small.svg'
+              alt='CatSnappy Logo'
+              className='w-8 h-8'
+            />
             <span className='text-2xl font-bold gradient-text'>CatSnappy</span>
           </div>
           <div className='flex items-center space-x-4'>

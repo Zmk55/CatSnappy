@@ -72,9 +72,11 @@ export default function SignInPage() {
             href='/'
             className='flex items-center justify-center space-x-2 mb-6'
           >
-            <div className='w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center'>
-              <span className='text-white font-bold text-xl'>🐱</span>
-            </div>
+            <img
+              src='/catsnappy-logo-small.svg'
+              alt='CatSnappy Logo'
+              className='w-10 h-10'
+            />
             <span className='text-3xl font-bold gradient-text'>CatSnappy</span>
           </Link>
           <h2 className='text-2xl font-bold'>Welcome back</h2>
