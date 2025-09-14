@@ -104,7 +104,7 @@ export default function SignUpPage() {
             className='flex items-center justify-center space-x-2 mb-6'
           >
             <img
-              src='/catsnappy-logo-small.svg'
+              src='/Snappy_Logo.png'
               alt='CatSnappy Logo'
               className='w-10 h-10'
             />

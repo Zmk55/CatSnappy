@@ -10,7 +10,7 @@ export default function LandingPage() {
         <nav className='flex items-center justify-between'>
           <div className='flex items-center space-x-2'>
             <img
-              src='/catsnappy-logo-small.svg'
+              src='/Snappy_Logo.png'
               alt='CatSnappy Logo'
               className='w-8 h-8'
             />
