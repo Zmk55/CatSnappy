@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   creator: 'CatSnappy',
   publisher: 'CatSnappy',
   icons: {
-    icon: '/Snappy_Logo.png',
-    shortcut: '/Snappy_Logo.png',
-    apple: '/Snappy_Logo.png',
+    icon: '/Cat_NoName.png',
+    shortcut: '/Cat_NoName.png',
+    apple: '/Cat_NoName.png',
   },
   formatDetection: {
     email: false,

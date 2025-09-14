@@ -38,7 +38,7 @@ export function AppNavbar() {
             className='flex items-center space-x-1 sm:space-x-2'
           >
             <img
-              src='/Snappy_Logo.png'
+              src='/Cat_NoName.png'
               alt='CatSnappy Logo'
               className='w-6 h-6 sm:w-8 sm:h-8'
             />
