@@ -3,14 +3,15 @@ import { prisma } from '@/lib/db'
 import { ProfilePage } from '@/components/profile-page'
 
 interface PageProps {
-  params: {
+  params: Promise<{
     handle: string
-  }
+  }>
 }
 
 export default async function UserProfilePage({ params }: PageProps) {
+  const { handle } = await params
   const user = await prisma.user.findUnique({
-    where: { handle: params.handle },
+    where: { handle },
     select: {
       id: true,
       name: true,
@@ -38,6 +39,14 @@ export default async function UserProfilePage({ params }: PageProps) {
       isReported: false,
     },
     include: {
+      author: {
+        select: {
+          id: true,
+          name: true,
+          handle: true,
+          image: true,
+        },
+      },
       tags: true,
       _count: {
         select: {
@@ -52,5 +61,14 @@ export default async function UserProfilePage({ params }: PageProps) {
     },
   })
 
-  return <ProfilePage user={user} posts={posts} />
+  return <ProfilePage 
+    user={{
+      ...user,
+      createdAt: user.createdAt.toISOString(),
+    }} 
+    posts={posts.map(post => ({
+      ...post,
+      createdAt: post.createdAt.toISOString(),
+    }))} 
+  />
 }

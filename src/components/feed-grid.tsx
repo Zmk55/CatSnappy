@@ -52,10 +52,10 @@ export function FeedGrid() {
     isFetchingNextPage,
   } = useInfiniteQuery({
     queryKey: ['posts'],
-    queryFn: ({ pageParam }) => fetchPosts(pageParam),
+    queryFn: ({ pageParam }: { pageParam: string | undefined }) => fetchPosts(pageParam),
     getNextPageParam: lastPage =>
       lastPage.hasMore ? lastPage.nextCursor : undefined,
-    initialPageParam: undefined,
+    initialPageParam: undefined as string | undefined,
   })
 
   if (isLoading) {

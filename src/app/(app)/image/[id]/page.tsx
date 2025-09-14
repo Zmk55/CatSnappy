@@ -3,14 +3,15 @@ import { prisma } from '@/lib/db'
 import { ImageDetail } from '@/components/image-detail'
 
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 export default async function ImagePage({ params }: PageProps) {
+  const { id } = await params
   const post = await prisma.post.findUnique({
-    where: { id: params.id },
+    where: { id },
     include: {
       author: {
         select: {
@@ -35,5 +36,8 @@ export default async function ImagePage({ params }: PageProps) {
     notFound()
   }
 
-  return <ImageDetail post={post} />
+  return <ImageDetail post={{
+    ...post,
+    createdAt: post.createdAt.toISOString(),
+  }} />
 }
