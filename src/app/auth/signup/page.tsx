@@ -106,7 +106,7 @@ export default function SignUpPage() {
             <img
               src='/Cat_NoName.png'
               alt='CatSnappy Logo'
-              className='w-10 h-10'
+              className='w-16 h-16'
             />
             <span className='text-3xl font-bold gradient-text'>CatSnappy</span>
           </Link>

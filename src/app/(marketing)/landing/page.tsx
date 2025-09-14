@@ -12,7 +12,7 @@ export default function LandingPage() {
             <img
               src='/Cat_NoName.png'
               alt='CatSnappy Logo'
-              className='w-8 h-8'
+              className='w-12 h-12'
             />
             <span className='text-2xl font-bold gradient-text'>CatSnappy</span>
           </div>
