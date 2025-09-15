@@ -8,11 +8,11 @@ export default function LandingPage() {
       {/* Header */}
       <header className='container mx-auto px-4 py-6'>
         <nav className='flex items-center justify-between'>
-          <div className='flex items-center space-x-2'>
+          <div className='flex items-center'>
             <img
               src='/Cat_NoName.png'
               alt='Cat Logo'
-              className='w-20 h-20'
+              className='w-20 h-20 -mr-3'
             />
             <img
               src='/CatSnappy_Name.png'

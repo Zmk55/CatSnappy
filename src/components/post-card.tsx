@@ -51,7 +51,7 @@ export function PostCard({ post }: PostCardProps) {
           <Link href={`/profile/${post.author.handle}`}>
             <Avatar className='w-8 h-8 sm:w-10 sm:h-10'>
               <AvatarImage
-                src={post.author.image || '/default-avatar.svg'}
+                src={`${post.author.image || '/default-avatar.svg'}?v=${Math.random()}&t=${Date.now()}`}
                 alt={post.author.name || post.author.handle}
               />
               <AvatarFallback>

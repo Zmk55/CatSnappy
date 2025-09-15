@@ -65,6 +65,11 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  other: {
+    'Cache-Control': 'no-cache, no-store, must-revalidate',
+    Pragma: 'no-cache',
+    Expires: '0',
+  },
   verification: {
     google: process.env.GOOGLE_VERIFICATION,
   },

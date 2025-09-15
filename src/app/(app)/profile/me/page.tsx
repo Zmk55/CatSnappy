@@ -1,7 +1,7 @@
 'use client'
 
 import { useSession } from 'next-auth/react'
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { Button } from '@/components/ui/button'
 import { PostCard } from '@/components/post-card'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -61,11 +61,16 @@ async function fetchUserPosts(): Promise<Post[]> {
 
 export default function MyProfilePage() {
   const { data: session } = useSession()
+  const queryClient = useQueryClient()
 
   const { data: user, isLoading: userLoading } = useQuery({
     queryKey: ['user-profile'],
     queryFn: fetchUserProfile,
   })
+
+  const handleRefreshProfile = () => {
+    queryClient.invalidateQueries({ queryKey: ['user-profile'] })
+  }
 
   const { data: posts, isLoading: postsLoading } = useQuery({
     queryKey: ['user-posts'],
@@ -84,6 +89,12 @@ export default function MyProfilePage() {
     )
   }
 
+  // Debug logging
+  console.log('Profile page - user data:', user)
+  console.log('Profile page - user.image:', user.image)
+  console.log('Profile page - session data:', session)
+  console.log('Profile page - session.user.image:', session?.user?.image)
+
   return (
     <div className='max-w-4xl mx-auto'>
       {/* Profile Header */}
@@ -91,8 +102,21 @@ export default function MyProfilePage() {
         <div className='flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6'>
           <Avatar className='w-24 h-24'>
             <AvatarImage
-              src={user.image || '/default-avatar.svg'}
+              src={`${user.image || session?.user?.image || '/default-avatar.svg'}?v=${Math.random()}&t=${Date.now()}`}
               alt={user.name || user.handle}
+              onError={e => {
+                console.error(
+                  'Avatar image failed to load:',
+                  user.image || session?.user?.image,
+                  e
+                )
+              }}
+              onLoad={() => {
+                console.log(
+                  'Avatar image loaded successfully:',
+                  user.image || session?.user?.image
+                )
+              }}
             />
             <AvatarFallback>
               {user.name
@@ -103,6 +127,13 @@ export default function MyProfilePage() {
           <div className='flex-1'>
             <div className='flex items-center space-x-4 mb-2'>
               <h1 className='text-2xl font-bold'>{user.name || user.handle}</h1>
+              <Button
+                variant='outline'
+                size='sm'
+                onClick={handleRefreshProfile}
+              >
+                Refresh
+              </Button>
               <Link href='/settings'>
                 <Button variant='outline' size='sm'>
                   <Settings className='w-4 h-4 mr-2' />

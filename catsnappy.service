@@ -1,0 +1,22 @@
+[Unit]
+Description=CatSnappy Web Application
+After=network.target docker.service
+Requires=docker.service
+Wants=network.target
+
+[Service]
+Type=simple
+User=tim
+Group=tim
+WorkingDirectory=/home/tim/CatSnappy
+Environment=DATABASE_URL=postgresql://postgres:postgres@localhost:5432/catsnappy
+ExecStartPre=/usr/bin/docker-compose -f /home/tim/CatSnappy/docker-compose.yml up -d
+ExecStartPre=/bin/sleep 10
+ExecStart=/usr/bin/pnpm dev
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

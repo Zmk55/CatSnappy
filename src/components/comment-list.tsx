@@ -67,7 +67,7 @@ export function CommentList({ postId }: CommentListProps) {
           <Link href={`/profile/${comment.author.handle}`}>
             <Avatar className='w-8 h-8'>
               <AvatarImage
-                src={comment.author.image || '/default-avatar.svg'}
+                src={`${comment.author.image || '/default-avatar.svg'}?v=${Math.random()}&t=${Date.now()}`}
                 alt={comment.author.name || comment.author.handle}
               />
               <AvatarFallback>

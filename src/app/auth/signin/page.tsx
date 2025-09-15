@@ -68,14 +68,11 @@ export default function SignInPage() {
     <div className='min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800'>
       <div className='max-w-md w-full space-y-8 p-8'>
         <div className='text-center'>
-          <Link
-            href='/'
-            className='flex items-center justify-center space-x-3 mb-6'
-          >
+          <Link href='/' className='flex items-center justify-center mb-6'>
             <img
               src='/Cat_NoName.png'
               alt='Cat Logo'
-              className='w-24 h-24'
+              className='w-24 h-24 -mr-4'
             />
             <img
               src='/CatSnappy_Name.png'

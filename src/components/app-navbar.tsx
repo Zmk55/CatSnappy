@@ -33,14 +33,11 @@ export function AppNavbar() {
       <div className='container mx-auto px-2 sm:px-4'>
         <div className='flex h-14 sm:h-16 items-center justify-between'>
           {/* Logo */}
-          <Link
-            href='/feed'
-            className='flex items-center space-x-1 sm:space-x-2'
-          >
+          <Link href='/feed' className='flex items-center'>
             <img
               src='/Cat_NoName.png'
               alt='Cat Logo'
-              className='w-16 h-16 sm:w-20 sm:h-20'
+              className='w-16 h-16 sm:w-20 sm:h-20 -mr-2 sm:-mr-3'
             />
             <img
               src='/CatSnappy_Name.png'
@@ -91,7 +88,7 @@ export function AppNavbar() {
                   >
                     <Avatar className='w-6 h-6 sm:w-7 sm:h-7'>
                       <AvatarImage
-                        src={session.user.image || '/default-avatar.svg'}
+                        src={`${session.user.image || '/default-avatar.svg'}?v=${Math.random()}&t=${Date.now()}`}
                         alt={session.user.name || 'User'}
                       />
                       <AvatarFallback>

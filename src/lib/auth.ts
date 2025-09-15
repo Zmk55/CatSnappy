@@ -74,6 +74,10 @@ export const authOptions: NextAuthOptions = {
           })
 
           if (user) {
+            console.log('Session callback - User data:', {
+              name: user.name,
+              image: user.image,
+            })
             session.user.name = user.name
             session.user.image = user.image
           }

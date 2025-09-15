@@ -80,6 +80,7 @@ export default function SettingsPage() {
   const { data: session, update } = useSession()
   const queryClient = useQueryClient()
   const [isUploading, setIsUploading] = useState(false)
+  const [currentImageUrl, setCurrentImageUrl] = useState<string | null>(null)
 
   const { data: user, isLoading } = useQuery({
     queryKey: ['user-profile'],
@@ -104,6 +105,8 @@ export default function SettingsPage() {
     mutationFn: updateUserProfile,
     onSuccess: async updatedUser => {
       queryClient.setQueryData(['user-profile'], updatedUser)
+      // Invalidate and refetch user profile data
+      await queryClient.invalidateQueries({ queryKey: ['user-profile'] })
       // Force session refresh to get updated user data
       await update()
       toast.success('Profile updated successfully!')
@@ -137,13 +140,36 @@ export default function SettingsPage() {
     try {
       const { imageUrl } = await uploadProfilePicture(file)
 
+      // Set the current image URL immediately for instant UI update
+      setCurrentImageUrl(imageUrl)
+
       // Update the profile with the new image URL
       await updateProfileMutation.mutateAsync({ image: imageUrl })
+
+      // Invalidate all user-related queries to ensure fresh data
+      await queryClient.invalidateQueries({ queryKey: ['user-profile'] })
+      await queryClient.invalidateQueries({ queryKey: ['user-posts'] })
+      await queryClient.invalidateQueries({ queryKey: ['profiles'] })
+      await queryClient.invalidateQueries({ queryKey: ['posts'] })
+
+      // Force refetch of all queries
+      await queryClient.refetchQueries({ queryKey: ['user-profile'] })
+
+      // Clear all cache to ensure fresh data
+      queryClient.clear()
 
       // Force session refresh to get updated profile picture
       await update()
 
+      // Also update the session data directly for immediate UI update
+      if (session) {
+        session.user.image = imageUrl
+      }
+
       toast.success('Profile picture updated!')
+
+      // Force immediate page refresh to ensure UI updates
+      window.location.reload()
     } catch (error) {
       toast.error(
         error instanceof Error
@@ -178,6 +204,12 @@ export default function SettingsPage() {
     )
   }
 
+  // Debug logging
+  console.log('Settings page - user data:', user)
+  console.log('Settings page - user.image:', user.image)
+  console.log('Settings page - session data:', session)
+  console.log('Settings page - session.user.image:', session?.user?.image)
+
   return (
     <div className='max-w-2xl mx-auto'>
       {/* Header */}
@@ -210,7 +242,7 @@ export default function SettingsPage() {
             <div className='flex items-center space-x-6'>
               <Avatar className='w-20 h-20'>
                 <AvatarImage
-                  src={user.image || '/default-avatar.svg'}
+                  src={`${currentImageUrl || user.image || session?.user?.image || '/default-avatar.svg'}?v=${Math.random()}&t=${Date.now()}`}
                   alt={user.name || user.handle}
                 />
                 <AvatarFallback>

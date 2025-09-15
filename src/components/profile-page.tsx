@@ -57,7 +57,7 @@ export function ProfilePage({ user, posts }: ProfilePageProps) {
         <div className='flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6'>
           <Avatar className='w-24 h-24'>
             <AvatarImage
-              src={user.image || '/default-avatar.svg'}
+              src={`${user.image || session?.user?.image || '/default-avatar.svg'}?v=${Math.random()}&t=${Date.now()}`}
               alt={user.name || user.handle}
             />
             <AvatarFallback>
