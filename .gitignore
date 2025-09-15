@@ -136,3 +136,7 @@ temp/
 # Uploads
 /uploads
 /public/uploads
+
+# CatSnappy persistent setup runtime files
+app.pid
+app.log
